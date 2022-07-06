@@ -1,38 +1,21 @@
-#ifndef FILE_CALC
-
-#define FILE_CALC
+#include "function_pointers.h"
 /**
- * struct op - Structure op
- * @op: operator
- * @f: function
+ * int_index - Searches for an integer in an array of integers.
+ * @array: The array of integers.
+ * @size: The size of the array.
+ * @cmp: A pointer to the function to be used to compare values.
+ * Return: If no element matches or size <= 0 - -1.
  */
-typedef struct op
+int int_index(int *array, int size, int (*cmp)(int))
 {
-	char *op;
-	int (*f)(int a, int b);
-} op_t;
-int op_add(int a, int b);
+	int index;
 
-
-
-int op_sub(int a, int b);
-
-
-
-int op_mul(int a, int b);
-
-
-
-int op_div(int a, int b);
-
-
-
-int op_mod(int a, int b);
-
-
-
-int (*get_op_func(char *s))(int, int);
-
-
-
-#endif
+	if (array == NULL || cmp == NULL)
+		return (-1);
+	for (index = 0; index < size; index++)
+	{
+		if (cmp(array[index]) != 0)
+			return (index);
+	}
+	return (-1);
+}
