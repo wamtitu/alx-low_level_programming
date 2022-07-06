@@ -1,11 +1,7 @@
-fndef FUNCTION_POINTERS_H
+#ifndef FILE_F_POINTRS
 
-#define FUNCTION_POINTERS_H
-/**
- * File: function_pointers.h
- * Desc: Header file containing prototypes for all functions
- * used in the 0x0E-function_pointers directory.
- */
+#define FILE_F_POINTRS
+
 #include <stdlib.h>
 
 
